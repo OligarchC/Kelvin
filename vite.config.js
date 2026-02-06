@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import vuetify from 'vite-plugin-vuetify'
 
 export default defineConfig({
-  base: '/kelvin/',
+  base: '/Kelvin/',
   plugins: [
     vue(),
     vuetify({ autoImport: true })
