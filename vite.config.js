@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import vuetify from 'vite-plugin-vuetify'
 
 export default defineConfig({
-  base: '/valentine-invite/',
+  base: '/kelvin/',
   plugins: [
     vue(),
     vuetify({ autoImport: true })
