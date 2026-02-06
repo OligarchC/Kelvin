@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <v-app class="app-shell">
     <div class="ambient">
       <span class="orb orb-a"></span>
@@ -20,7 +20,7 @@
                 closable
                 @click:close="showAlert = false"
               >
-                Best answer ever. I’m so excited.
+                Best answer ever. I'm so excited.
               </v-alert>
               <div class="hero-grid">
                 <section class="copy">
@@ -50,6 +50,8 @@
                       :style="noBtnStyle"
                       @mouseenter="dodgeNo"
                       @focus="dodgeNo"
+                      @pointerdown.prevent="dodgeNo"
+                      @touchstart.prevent="dodgeNo"
                       @click="dodgeNo"
                     >
                       No (try to catch me)
@@ -74,11 +76,11 @@
                     <img
                       class="photo-img"
                       :src="photoUrl"
-                      alt="Silvana and me"
+                      alt="Brittany and Kelvin"
                     />
                     <div class="photo-inner">
                       <div class="sparkle"></div>
-                      <div class="monogram">S</div>
+                      <div class="monogram">B</div>
                       <p class="note">For you, always.</p>
                     </div>
                   </div>
@@ -88,19 +90,25 @@
           </v-col>
         </v-row>
       </v-container>
+      <div class="signature-wrap">
+      <v-chip class="signature" size="small" variant="tonal">
+        <v-icon icon="mdi-account-circle-outline" start></v-icon>
+        Created by OligarchC
+      </v-chip>
+    </div>
     </v-main>
 
     <div v-if="showCinematic" class="cinema-overlay">
       <div class="cinema-frame">
         <div class="cinema-glow"></div>
         <div class="cinema-seal">
-          <span class="cinema-heart">❤</span>
+          <span class="cinema-heart">?</span>
           <span class="cinema-stamp">Yes</span>
         </div>
         <div class="cinema-copy">
           <p class="cinema-eyebrow">A moment to remember</p>
-          <h2 class="cinema-title">Silvana, you just made my year.</h2>
-          <p class="cinema-subtitle">February 14 • Our story begins</p>
+          <h2 class="cinema-title">Brittany, you just made my year.</h2>
+          <p class="cinema-subtitle">February 14 � Our story begins</p>
         </div>
         <button class="cinema-close" @click="showCinematic = false">Close</button>
       </div>
@@ -110,7 +118,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import photoUrl from './assets/silvana.jpg'
+import photoUrl from './assets/Brittany.JPG'
 
 const showAlert = ref(false)
 const noBtnOffset = ref({ x: 0, y: 0 })
@@ -568,6 +576,17 @@ const noBtnStyle = computed(() => ({
   }
 }
 
+.signature-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 32px;
+}
+.signature {
+  margin: 0 auto 32px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(41, 21, 56, 0.7);
+}
 @media (max-width: 600px) {
   .actions {
     flex-direction: column;
@@ -581,3 +600,4 @@ const noBtnStyle = computed(() => ({
   }
 }
 </style>
+
